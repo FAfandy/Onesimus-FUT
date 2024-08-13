@@ -6,13 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onesimus FUT EAFC24</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div>
-        <h2>
-            Onesimus FUT EAFC24
-        </h2>
+    <div class="main">
+        <h1>Onesimus FUT EAFC24</h1>
+        <h3>Enter your login credentials</h3>
+        <form action="">
+            <label for="first">
+                    Username:
+              </label>
+            <input type="text" id="first" name="first" placeholder="Enter your Username" required>
+
+            <label for="password">
+                    Password:
+              </label>
+            <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+            <div class="wrap">
+                <button type="submit" onclick="solve()">
+                          Submit
+                    </button>
+            </div>
+        </form>
+        <p>Not registered?
+            <a href="#" style="text-decoration: none;">
+                    Create an account
+              </a>
+        </p>
     </div>
 </body>
 <script src="script.js"></script>
