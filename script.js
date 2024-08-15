@@ -19,15 +19,19 @@
 console.log('Script is running');
 
 const button = document.getElementById('signin');
-const uEmail = document.getElementById('email');
+const uEmail = document.getElementById('uid');
 
 button.addEventListener("click", funcSignin)
 
 function funcSignin() {
-    console.log(uEmail.value);
+    //console.log(uEmail.value);
     // Send data to REST API
-    const arrUsr = [];
 
+    // var userEmail = getCookie("uid");
+
+    // console.log(userEmail);
+
+    // if (!userEmail) {
     fetch('https://fafandy.github.io/Onesimus-FUT/u.json') // Replace with your API URL
         .then(response => {
             if (!response.ok) {
@@ -36,12 +40,15 @@ function funcSignin() {
             return response.json(); // Parse the JSON from the response
         })
         .then(data => {
-            console.log('Data received:', data); // Log the data to the console
+            // console.log('Data received:', data); // Log the data to the console
 
-            const foundObject = data.find(obj => obj.name === uEmail.value);
+            const foundObject = data.find(obj => obj.email === uEmail.value);
 
             if (foundObject) {
-                console.log("Found object:", foundObject);
+                // console.log("Found object:", foundObject);
+                console.log(foundObject.email);
+                setCookie("uid", foundObject.email, 30);
+                console.log(`Cookies saved: ${getCookie("uid")}`)
             } else {
                 console.log("Object not found.");
             }
@@ -57,6 +64,9 @@ function funcSignin() {
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
+    // }
+
+
 
     // console.log(`Find user name: ${arrUsr.includes(uid.value)}`);
 }
